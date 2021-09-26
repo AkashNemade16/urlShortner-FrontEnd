@@ -48,12 +48,12 @@ const MyUrls = () => {
         } else {
             console.log("error")
         }
-    }, [])
+    }, [authState.isAuthenticated === true])
 
     return (
         <Container>
 
-            {authState.isAuthenticated && data[0] ?<TableContainer component={Paper}>
+            {authState.isAuthenticated && data[0] ? <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 200 }} aria-label="customized table">
                     <TableHead>
                         <TableRow>
@@ -63,9 +63,9 @@ const MyUrls = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {data[0].map((i,j) => (
+                        {data[0].map((i, j) => (
                             <StyledTableRow key={j}>
-                                <StyledTableCell align="center"><Link href={ i.shortenedUrl }>{i.shortenedUrl}</Link></StyledTableCell>
+                                <StyledTableCell align="center"><Link href={i.shortenedUrl}>{i.shortenedUrl}</Link></StyledTableCell>
                                 <StyledTableCell align="center">{i.clicks}</StyledTableCell>
                                 <StyledTableCell align="center">{i.ownedBy}</StyledTableCell>
                             </StyledTableRow>
@@ -74,7 +74,7 @@ const MyUrls = () => {
                 </Table>
             </TableContainer> : <Typography variant='h5'><Link href='/login'>Please Log In</Link></Typography>}
         </Container>
-        
+
     )
 }
 
