@@ -46,9 +46,9 @@ const MyUrls = () => {
             setData(userUrls)
             console.log(data)
         } else {
-            console.log("error")
+            setData([])
         }
-    }, [authState.isAuthenticated === true])
+    }, [])
 
     return (
         <Container>

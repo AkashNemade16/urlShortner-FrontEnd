@@ -1,7 +1,7 @@
 import * as api from '../api';
 import axios from "axios"
 import { FETCH_USER_URLS } from './types';
-
+const baseURL = "https://urlshort-backend.herokuapp.com"
 //action creators
 export const getUrlPost = async (dispatch) => {
     try {
@@ -42,7 +42,7 @@ export const getUserUrls = (email) => dispatch => {
 
     //Request body
     const body = { email };
-    axios.post('/users', body, config)
+    axios.post(`${baseURL}/users`, body, config)
         .then(res => dispatch({
             type: FETCH_USER_URLS,
             payload: res.data
