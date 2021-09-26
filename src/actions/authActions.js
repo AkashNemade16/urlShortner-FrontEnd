@@ -11,6 +11,7 @@ import {
     REGISTER_FAIL
 } from './types';
 
+const baseURL = "https://urlshort-backend.herokuapp.com"
 
 //check token and load user
 export const loadUser = () => (dispatch, getState) => {
@@ -19,7 +20,7 @@ export const loadUser = () => (dispatch, getState) => {
 
 
 
-    axios.get('/auth/getuser', tokenConfig(getState))
+    axios.get(`${baseURL}/auth/getuser`, tokenConfig(getState))
         .then(res => dispatch({
             type: USER_LOADED,
             payload: res.data
@@ -42,7 +43,7 @@ export const register = ({ name, email, password }) => dispatch => {
 
     //Request body
     const body = JSON.stringify({ name, email, password });
-    axios.post('/user', body, config)
+    axios.post(`${baseURL}/user`, body, config)
         .then(res => dispatch({
             type: REGISTER_SUCCESS,
             payload: res.data
@@ -73,7 +74,7 @@ export const LogIn = ({ email, password }) => dispatch => {
 
     //Request body
     const body = JSON.stringify({ email, password });
-    axios.post('/auth/login', body, config)
+    axios.post(`${baseURL}/auth/login`, body, config)
         .then(res => dispatch({
             type: LOGIN_SUCCESS,
             payload: res.data

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { AppBar, Toolbar, Button, Box, Typography, Link } from '@mui/material';
+import { AppBar, Toolbar, Button, Box, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../actions/authActions';
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 
 const Header = () => {
@@ -27,13 +27,14 @@ const Header = () => {
             <AppBar position='static'>
                 <Toolbar>
 
-                    <Typography variant="h3" component="div" sx={{ flexGrow: 1 }} >
+                    {/* <Link to='/'> */}
+                    <Typography variant="h3" sx={{ flexGrow: 1 }} >
                         TinyUrl
                     </Typography >
-
-                    <Button onClick={handleHome} color="inherit">Home</Button>  
+                    {/* </Link> */}
+                    <Button onClick={handleHome} color="inherit">Home</Button>
                     <Button onClick={handleMyurls} color="inherit">MyUrls</Button>
-                    
+
                     {authState.isAuthenticated ? (<Button onClick={handleLogout} color="inherit">Logout</Button>) : (<Button href="/login" color="inherit">SignIn</Button>)}
 
 

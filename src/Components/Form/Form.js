@@ -1,11 +1,30 @@
 import React, { useState, useEffect } from "react";
-import { TextField, Button, Typography, Paper, Box, Link } from "@mui/material";
+import { TextField, Button, Typography, Paper, Box, Link, Container } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { createUrl } from "../../actions/urlActions";
 import ShareComponents from "../Share/ShareComponents";
-import './Form.css'
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles({
+    paper: {
+        borderRadius: "10px"
+    },
+    textField: {
+        display: "block",
+        height: "23px",
+        width: "440px,",
+        padding: "17px 14px 17px 14px",
+        minHeight: "auto",
+        border: "1px solid #bebcbc",
+        borderRadius: "5px",
+    },
+    formContainer: {
+        marginTop: "20px"
+    },
+});
 
 const Form = () => {
+    const classes = useStyles()
     const [postUrl, setPostUrl] = useState({
         full: "",
     });
@@ -26,22 +45,23 @@ const Form = () => {
 
 
     return (
-        <Box
-            sx={{
-                display: "flex",
-                flexDirection: "column",
-                flexWrap: "wrap",
-                "& > :not(style)": {
-                    m: 1,
-                    width: 500,
-                    height: 550,
-                },
-            }}
-        >
-            <Paper elevation={3}>
+        <Container className={classes.formContainer} maxWidth='sm'>
+            {/* <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    flexWrap: "wrap",
+                    "& > :not(style)": {
+                        m: 1,
+                        width: 350,
+                        height: 550,
+                    },
+                }}
+            > */}
+            <Paper className={classes.paper} elevation={3}>
                 <form>
                     <Box p={2}>
-                        <Typography variant="h6" >
+                        <Typography align="center" variant="h6" >
                             Enter a long URL to make a TinyURL
                         </Typography>
                     </Box>
@@ -68,9 +88,9 @@ const Form = () => {
 
                     <Box p={2}>
 
-                        <div className='textField'>
+                        <div className={classes.textField}>
 
-                            <Typography variant='h6'>
+                            <Typography variant='h8'>
                                 {urls[0] ?
                                     <Link href={urls[0].shortenedUrl}>
                                         {urls[0].shortenedUrl}
@@ -81,9 +101,7 @@ const Form = () => {
                     </Box>
 
                     <Box p={2}>
-                        <Typography variant="h6">
-                            Share
-                        </Typography>
+
                         <ShareComponents />
                     </Box>
                     <Box p={2}>
@@ -96,7 +114,8 @@ const Form = () => {
                     </Box>
                 </form>
             </Paper>
-        </Box>
+            {/* </Box> */}
+        </Container>
     );
 };
 
