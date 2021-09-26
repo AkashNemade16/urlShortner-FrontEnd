@@ -9,12 +9,20 @@ import {
     TableCell,
     TableContainer,
     TableHead,
-    TableRow
+    TableRow,
+    fabClasses
 } from "@mui/material";
 import { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
 import { useSelector } from 'react-redux';
+import { makeStyles } from '@mui/styles';
 
+
+const useStyles = makeStyles({
+    padding:{
+        paddingTop:'20px'
+    }
+});
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
         backgroundColor: theme.palette.common.black,
@@ -33,27 +41,28 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:last-child td, &:last-child th': {
         border: 0,
     },
+   
 }));
 
 
 const MyUrls = () => {
     const authState = useSelector(state => state.auth)
-    const userUrls = useSelector(state => state.userUrl.userUrls)
+    const userUrls = useSelector(state => state.userUrl)
     const [data, setData] = useState([]);
 
     useEffect(() => {
         if (authState.isAuthenticated) {
-            setData(userUrls)
+            setData(userUrls.userUrls)
             console.log(data)
         } else {
             setData([])
-        }
+                }
     }, [])
-
+const classes = useStyles()
     return (
         <Container>
 
-            {authState.isAuthenticated && data[0] ? <TableContainer component={Paper}>
+            {authState.isAuthenticated && data[0] ? <div className={classes.padding}><TableContainer component={Paper}>
                 <Table sx={{ minWidth: 200 }} aria-label="customized table">
                     <TableHead>
                         <TableRow>
@@ -72,7 +81,7 @@ const MyUrls = () => {
                         ))}
                     </TableBody>
                 </Table>
-            </TableContainer> : <Typography variant='h5'><Link href='/login'>Please Log In</Link></Typography>}
+            </TableContainer></div> : <Typography variant='h5'><Link href='/login'>Please Log In</Link></Typography>}
         </Container>
 
     )

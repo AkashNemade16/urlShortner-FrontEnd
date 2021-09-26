@@ -2,11 +2,8 @@ import React, { useState, useEffect } from "react";
 import { TextField, Button, Typography, Paper, Box, Alert } from "@mui/material";
 import { useSelector, useDispatch } from 'react-redux';
 import { register } from "../../actions/authActions";
-import { clearErrors } from "../../actions/errorActions";
-import { logout } from "../../actions/authActions";
 import { Redirect } from "react-router-dom";
-import { getUserUrls } from "../../actions/urlActions";
-import { createUrl } from "../../actions/urlActions";
+
 
 
 const RegisterUser = () => {
@@ -14,9 +11,7 @@ const RegisterUser = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [msg, setMsg] = useState(null);
-    const [url,setUrl] = useState({
-        full: "",
-    })
+   
     const dispatch = useDispatch();
 
     const authState = useSelector(state => state.auth)
@@ -27,13 +22,10 @@ const RegisterUser = () => {
             setMsg(errState.msg.msg)
         } else {
             setMsg(null)
+            
         }
 
-        if (authState.isAuthenticated) {
-            console.log(authState.user.email);
-            
-            
-        }
+        // }
     }, [authState])
     if (authState.isAuthenticated) {
         return <Redirect to="/" />
@@ -44,19 +36,18 @@ const RegisterUser = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-
         // Create user object
         const user = {
             name,
             email,
             password
         };
-
+       
         // Attempt to login
         dispatch(register(user));
-        if(authState.isAuthenticated){
-            dispatch(getUserUrls(authState.user.email))
-        }
+        // dispatch(getUserUrls(authState.user.url))
+        
+        
     }
 
     return (
@@ -130,7 +121,7 @@ const RegisterUser = () => {
                         <Button onClick={onSubmit} variant="contained" >
                             SignUp
                         </Button>
-                        
+
                     </Box>
                 </form>
             </Paper>

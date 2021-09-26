@@ -46,18 +46,7 @@ const Form = () => {
 
     return (
         <Container className={classes.formContainer} maxWidth='sm'>
-            {/* <Box
-                sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    flexWrap: "wrap",
-                    "& > :not(style)": {
-                        m: 1,
-                        width: 350,
-                        height: 550,
-                    },
-                }}
-            > */}
+    
             <Paper className={classes.paper} elevation={3}>
                 <form>
                     <Box p={2}>
@@ -82,10 +71,7 @@ const Form = () => {
                         <Typography variant="h6">
                             Tiny Url
                         </Typography>
-
-
                     </Box>
-
                     <Box p={2}>
 
                         <div className={classes.textField}>
@@ -108,13 +94,9 @@ const Form = () => {
                         <Button variant="contained" onClick={onHit}>
                             Make TinyURL
                         </Button>
-
-
-
                     </Box>
                 </form>
             </Paper>
-            {/* </Box> */}
         </Container>
     );
 };
