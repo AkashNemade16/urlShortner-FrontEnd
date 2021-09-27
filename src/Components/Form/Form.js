@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Button, Typography, Paper, Box, Link, Container } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { createUrl } from "../../actions/urlActions";
+import { createUrl, getUserUrls } from "../../actions/urlActions";
 import ShareComponents from "../Share/ShareComponents";
 import { makeStyles } from '@mui/styles';
 
@@ -30,7 +30,8 @@ const Form = () => {
     });
     const urls = useSelector(state => state.ur.urls);//get url state
     const authState = useSelector(state => state.auth)
-    const isAuthenticatedState = authState.isAuthenticated
+    const isAuthenticatedState = authState.isAuthenticated;
+    const getUserUrlState = useSelector(state => state.userUrl.userUrls)
     const dispatch = useDispatch();
 
     const textOnChange = (e) => {
@@ -42,7 +43,11 @@ const Form = () => {
         dispatch(createUrl(postUrl));
     };
 
-
+// useEffect(()=>{
+//     if(isAuthenticatedState&& postUrl){
+//         dispatch(getUserUrls(postUrl))
+//     }
+// },[isAuthenticatedState])
 
     return (
         <Container className={classes.formContainer} maxWidth='sm'>

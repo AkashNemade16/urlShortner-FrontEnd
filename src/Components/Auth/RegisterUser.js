@@ -3,7 +3,7 @@ import { TextField, Button, Typography, Paper, Box, Alert } from "@mui/material"
 import { useSelector, useDispatch } from 'react-redux';
 import { register } from "../../actions/authActions";
 import { Redirect } from "react-router-dom";
-
+import { getUserUrls } from "../../actions/urlActions";
 
 
 const RegisterUser = () => {
@@ -24,9 +24,13 @@ const RegisterUser = () => {
             setMsg(null)
             
         }
+        if (authState.isAuthenticated) {
+            console.log(authState.user.email)
 
+            dispatch(getUserUrls(authState.user.email))
+        }
         // }
-    }, [authState])
+    }, [])
     if (authState.isAuthenticated) {
         return <Redirect to="/" />
     }
@@ -43,7 +47,7 @@ const RegisterUser = () => {
             password
         };
        
-        // Attempt to login
+        // register
         dispatch(register(user));
         // dispatch(getUserUrls(authState.user.url))
         
