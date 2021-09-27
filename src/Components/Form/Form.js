@@ -31,7 +31,6 @@ const Form = () => {
     const urls = useSelector(state => state.ur.urls);//get url state
     const authState = useSelector(state => state.auth)
     const isAuthenticatedState = authState.isAuthenticated;
-    const getUserUrlState = useSelector(state => state.userUrl.userUrls)
     const dispatch = useDispatch();
 
     const textOnChange = (e) => {
