@@ -8,6 +8,10 @@ export default function userUrlState(state = initialState, action) {
             return {
                 ...state, userUrls: [action.payload]
             };
+        case 'CLEAR_DATA':
+            return {
+                ...state, userUrls: []
+            }
         default:
             return state;
     }

@@ -14,8 +14,14 @@ export default function urlState(state = initialState, action) {
                 ...state,
                 urls: [action.payload]
             };
-        
+        // case 'FETCH_USER_URLS':
+        //     return {
+        //         ...state, userUrls: [action.payload]
+        //     };
         default:
             return state;
+        
+        // default:
+        //     return state;
     }
 }

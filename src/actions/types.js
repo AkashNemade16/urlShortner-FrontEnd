@@ -9,3 +9,4 @@ export const REGISTER_FAIL = "REGISTER_FAIL";
 export const GET_ERRORS = 'GET_ERRORS';
 export const CLEAR_ERRORS = 'CLEAR_ERRORS';
 export const FETCH_USER_URLS = "FETCH_USER_URLS"
+export const CLEAR_DATA = "CLEAR_DATA"

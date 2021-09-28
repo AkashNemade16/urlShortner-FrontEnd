@@ -13,8 +13,9 @@ import {
 } from "@mui/material";
 import { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
 import { makeStyles } from '@mui/styles';
+import { clearData } from './../../actions/urlActions';
 
 
 const useStyles = makeStyles({
@@ -45,18 +46,24 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 const MyUrls = () => {
+    const dispatch = useDispatch()
     const authState = useSelector(state => state.auth)
-    const userUrls = useSelector(state => state.userUrl)
+    const userUrls = useSelector(state => state.userUrl.userUrls)
     const [data, setData] = useState([]);
-
+    console.log(data)
     useEffect(() => {
         if (authState.isAuthenticated) {
-            setData(userUrls.userUrls)
+            setData(userUrls)
             console.log(data)
+            // if (localStorage.getItem("my-list") === null){
+            //     localStorage.setItem("my-list", JSON.stringify(userUrls))
+            // }
+            // setData(localStorage.getItem('my-list'))
         } else {
-            setData([])
+            dispatch(clearData(userUrls))
                 }
-    }, [])
+    }, [authState.isAuthenticated,authState.token])
+    
 const classes = useStyles()
     return (
         <Container>

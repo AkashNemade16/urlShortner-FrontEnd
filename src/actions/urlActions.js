@@ -1,6 +1,6 @@
 import * as api from '../api';
 import axios from "axios"
-import { FETCH_USER_URLS } from './types';
+import { FETCH_USER_URLS,CLEAR_DATA } from './types';
 const baseURL = "https://urlshort-backend.herokuapp.com"
 //action creators
 export const getUrlPost = async (dispatch) => {
@@ -51,6 +51,12 @@ export const getUserUrls = (email) => dispatch => {
             console.log(err)
         })
 }
+
+export const clearData = ()  => {
+    return {
+        type: CLEAR_DATA
+    };
+};
 
 
 
