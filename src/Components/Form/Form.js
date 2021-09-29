@@ -45,7 +45,7 @@ const Form = () => {
     };
 
     useEffect(() => {
-        if (authState.isAuthenticated) {
+        if (authState.isAuthenticated && authState.user!==null) {
             dispatch(getUserUrls(authState.user.email))
         }
     }, [urls,authState.isAuthenticated])
