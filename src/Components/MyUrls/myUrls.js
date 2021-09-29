@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState} from 'react'
 import {
     Typography,
     Paper,
@@ -15,7 +15,7 @@ import { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@mui/styles';
-import { clearData,getUserUrls} from './../../actions/urlActions';
+import { clearData, getUserUrls } from './../../actions/urlActions';
 
 
 const useStyles = makeStyles({
@@ -50,17 +50,16 @@ const MyUrls = () => {
     const authState = useSelector(state => state.auth)
     const userUrls = useSelector(state => state.userUrl.userUrls)
     const [data, setData] = useState([]);
-    console.log(data)
     useEffect(() => {
-        if (authState.isAuthenticated && authState.user !== null ) {
+        if (authState.isAuthenticated && authState.user !== null) {
             setData(userUrls)
             dispatch(getUserUrls(authState.user.email))
         } else {
             dispatch(clearData(userUrls))
         }
-    },[authState.isAuthenticated,dispatch,userUrls,authState.user])
+    }, [authState.isAuthenticated, dispatch, userUrls, authState.user])
 
-  
+
 
     const classes = useStyles()
     return (

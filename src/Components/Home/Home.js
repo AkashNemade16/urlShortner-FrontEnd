@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Header from '../Header/Header';
 import { getUrlPost} from '../../actions/urlActions'
 import Form from '../Form/Form'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import RegisterUser from '../Auth/RegisterUser';
 import LoggedInUser from '../Auth/LoggedInUser';
@@ -10,9 +10,6 @@ import MyUrls from './../MyUrls/myUrls';
 
 const Home = () => {
     const dispatch = useDispatch();
-    const authState = useSelector(state => state.auth)
-    const isAuthenticatedState = authState.isAuthenticated
-    console.log({ isAuthenticatedState })
 
     useEffect(() => {
         dispatch(getUrlPost);
