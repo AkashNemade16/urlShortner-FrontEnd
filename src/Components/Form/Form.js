@@ -50,7 +50,7 @@ const Form = () => {
         }else{
             dispatch(clearData(userUrls))
         }
-    }, [urls,authState.isAuthenticated])
+    }, [urls,authState.isAuthenticated,dispatch])
 
     return (
         <Container className={classes.formContainer} maxWidth='sm'>

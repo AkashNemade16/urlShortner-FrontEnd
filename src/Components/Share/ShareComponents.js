@@ -1,8 +1,8 @@
 import React from 'react'
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import ClipboardIcon from 'react-clipboard-icon'
-import { Button, Typography, Box, Container, Grid } from "@mui/material";
-import { useDispatch, useSelector } from "react-redux";
+import { Button, Typography, Container, Grid } from "@mui/material";
+import { useSelector } from "react-redux";
 import {
     FacebookShareButton,
     WhatsappShareButton,

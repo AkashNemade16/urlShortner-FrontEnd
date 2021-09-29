@@ -15,7 +15,7 @@ import { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@mui/styles';
-import { clearData,getUserUrls } from './../../actions/urlActions';
+import { clearData,getUserUrls} from './../../actions/urlActions';
 
 
 const useStyles = makeStyles({
@@ -52,18 +52,13 @@ const MyUrls = () => {
     const [data, setData] = useState([]);
     console.log(data)
     useEffect(() => {
-        if (authState.isAuthenticated ) {
+        if (authState.isAuthenticated && authState.user !== null ) {
             setData(userUrls)
-            console.log(data)
-            // dispatch(getUserUrls(authState.user.email))
-            // if (localStorage.getItem("my-list") === null){
-            //     localStorage.setItem("my-list", JSON.stringify(userUrls))
-            // }
-            // setData(localStorage.getItem('my-list'))
+            dispatch(getUserUrls(authState.user.email))
         } else {
             dispatch(clearData(userUrls))
         }
-    },[authState.isAuthenticated])
+    },[authState.isAuthenticated,dispatch,userUrls,authState.user])
 
   
 

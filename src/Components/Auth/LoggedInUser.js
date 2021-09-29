@@ -3,7 +3,7 @@ import { TextField, Button, Typography, Paper, Box, Alert } from "@mui/material"
 import { useSelector, useDispatch } from 'react-redux';
 import { LogIn } from "../../actions/authActions";
 
-import { getUserUrls,createUrl} from "../../actions/urlActions";
+import { getUserUrls} from "../../actions/urlActions";
 import { Redirect } from "react-router-dom";
 
 const LoggedInUser = () => {
@@ -24,8 +24,6 @@ const LoggedInUser = () => {
         }
 
         if (authState.isAuthenticated) {
-            console.log(authState.user.email)
-            
             dispatch(getUserUrls(authState.user.email))
         }
     },[authState.isAuthenticated,errState.id])
@@ -43,9 +41,6 @@ const LoggedInUser = () => {
 
     }
 
-    // const onLogOut = e => {
-    //     dispatch(logout())
-    // }
 
     return (
         <Box
