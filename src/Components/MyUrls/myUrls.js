@@ -13,14 +13,14 @@ import {
 } from "@mui/material";
 import { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
-import { useSelector,useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@mui/styles';
-import { clearData } from './../../actions/urlActions';
+import { clearData,getUserUrls } from './../../actions/urlActions';
 
 
 const useStyles = makeStyles({
-    padding:{
-        paddingTop:'20px'
+    padding: {
+        paddingTop: '20px'
     }
 });
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -41,7 +41,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:last-child td, &:last-child th': {
         border: 0,
     },
-   
+
 }));
 
 
@@ -52,19 +52,22 @@ const MyUrls = () => {
     const [data, setData] = useState([]);
     console.log(data)
     useEffect(() => {
-        if (authState.isAuthenticated) {
+        if (authState.isAuthenticated ) {
             setData(userUrls)
             console.log(data)
+            // dispatch(getUserUrls(authState.user.email))
             // if (localStorage.getItem("my-list") === null){
             //     localStorage.setItem("my-list", JSON.stringify(userUrls))
             // }
             // setData(localStorage.getItem('my-list'))
         } else {
             dispatch(clearData(userUrls))
-                }
-    }, [authState.isAuthenticated,authState.token])
-    
-const classes = useStyles()
+        }
+    },[authState.isAuthenticated])
+
+  
+
+    const classes = useStyles()
     return (
         <Container>
 

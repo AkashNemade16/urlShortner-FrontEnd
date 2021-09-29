@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Header from '../Header/Header';
-import { getUrlPost, getUserUrls } from '../../actions/urlActions'
+import { getUrlPost} from '../../actions/urlActions'
 import Form from '../Form/Form'
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';

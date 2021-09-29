@@ -13,25 +13,26 @@ const RegisterUser = () => {
     const [msg, setMsg] = useState(null);
    
     const dispatch = useDispatch();
-
+    
     const authState = useSelector(state => state.auth)
     const errState = useSelector(state => state.err)
 
     useEffect(() => {
         if (errState.id === 'REGISTER_FAIL') {
-            setMsg(errState.msg.msg)
+            setMsg(errState.msg.error)
         } else {
             setMsg(null)
             
         }
-        if (authState.isAuthenticated) {
+        if (authState.isAuthenticated && authState.user!==null) {
             console.log(authState.user.email)
 
             dispatch(getUserUrls(authState.user.email))
         }
         // }
-    }, [])
+    }, [authState.isAuthenticated])
     if (authState.isAuthenticated) {
+        dispatch(getUserUrls(authState.user.email))
         return <Redirect to="/" />
     }
     const handleChangeName = (e) => setName(e.target.value);

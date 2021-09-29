@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createUrl, getUserUrls } from "../../actions/urlActions";
 import ShareComponents from "../Share/ShareComponents";
 import { makeStyles } from '@mui/styles';
+import { clearData } from './../../actions/urlActions';
 
 const useStyles = makeStyles({
     paper: {
@@ -31,6 +32,7 @@ const Form = () => {
     const urls = useSelector(state => state.ur.urls);//get url state
     const authState = useSelector(state => state.auth)
     const isAuthenticatedState = authState.isAuthenticated;
+    const userUrls = useSelector(state=>state.userUrl)
     const dispatch = useDispatch();
 
     const textOnChange = (e) => {
@@ -42,15 +44,15 @@ const Form = () => {
         dispatch(createUrl(postUrl));
     };
 
-// useEffect(()=>{
-//     if(isAuthenticatedState&& postUrl){
-//         dispatch(getUserUrls(postUrl))
-//     }
-// },[isAuthenticatedState])
+    useEffect(() => {
+        if (authState.isAuthenticated) {
+            dispatch(getUserUrls(authState.user.email))
+        }
+    }, [urls,authState.isAuthenticated])
 
     return (
         <Container className={classes.formContainer} maxWidth='sm'>
-    
+
             <Paper className={classes.paper} elevation={3}>
                 <form>
                     <Box p={2}>
