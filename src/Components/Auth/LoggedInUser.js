@@ -28,7 +28,7 @@ const LoggedInUser = () => {
             
             dispatch(getUserUrls(authState.user.email))
         }
-    },[authState.isAuthenticated])
+    },[authState.isAuthenticated,errState.id])
 
     if (authState.isAuthenticated) {
         return <Redirect to="/" />

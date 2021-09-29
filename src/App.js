@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { persistStore, persistReducer } from 'redux-persist'
 import Home from './Components/Home/Home';
 import { Provider, } from 'react-redux';

@@ -19,7 +19,7 @@ const RegisterUser = () => {
 
     useEffect(() => {
         if (errState.id === 'REGISTER_FAIL') {
-            setMsg(errState.msg.error)
+            setMsg(errState.msg.msg)
         } else {
             setMsg(null)
             
@@ -30,7 +30,7 @@ const RegisterUser = () => {
             dispatch(getUserUrls(authState.user.email))
         }
         // }
-    }, [authState.isAuthenticated])
+    }, [authState.isAuthenticated,errState.id])
     if (authState.isAuthenticated) {
         dispatch(getUserUrls(authState.user.email))
         return <Redirect to="/" />
