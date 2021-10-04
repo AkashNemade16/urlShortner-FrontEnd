@@ -8,7 +8,7 @@ import reducers from './reducers';
 import { PersistGate } from 'redux-persist/integration/react';
 import { loadUser } from './actions/authActions';
 
-const store = createStore(reducers, compose(applyMiddleware(thunk),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
+const store = createStore(reducers, compose(applyMiddleware(thunk)));
 const persistor = persistStore(store)
 
 const App = () => {
