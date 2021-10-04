@@ -17,7 +17,7 @@ import { logout } from "../../actions/authActions";
 
 const useStyles = makeStyles({
   list: {
-    width: 250,
+    width: '250px',
   },
   linkText: {
     textDecoration: `none`,
@@ -25,11 +25,11 @@ const useStyles = makeStyles({
     color: `black`,
   },
   button: {
-    marginTop: 2,
-    marginBottom: 3,
-    marginLeft: 100,
+    marginTop: '2px',
+    marginBottom: '3px',
+    marginLeft: '100px',
     // paddingTop: 10,
-    fontSize: 15,
+    fontSize: '15px',
   },
 });
 
