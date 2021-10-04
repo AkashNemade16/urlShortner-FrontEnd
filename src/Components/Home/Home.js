@@ -44,12 +44,13 @@ const Home = () => {
         <BrowserRouter>
             <div className={classes.bg} >
                 <Header />
-                <Switch>
+                {/* <Switch>
                     <Route exact path="/" component={Form} />
                     <Route path="/register" exact component={RegisterUser} />
                     <Route path="/login" exact component={LoggedInUser} />
                     <Route path="/myurls" exact component={MyUrls} />
-                </Switch>
+                </Switch> */}
+                <Form/>
             </div>
         </BrowserRouter>
     );
