@@ -17,12 +17,12 @@ const useStyles = makeStyles(theme => {
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             height: "100vh",
-            [theme.breakpoints.down('md')]: {
-                height: '120vh'
-            },
-            [theme.breakpoints.down('xs')]: {
-                height: '170vh'
-            },
+            // [theme.breakpoints.down('md')]: {
+            //     height: '120vh'
+            // },
+            // [theme.breakpoints.down('xs')]: {
+            //     height: '170vh'
+            // },
             // [theme.breakpoints.up('sm')]: {
             //     height: '110vh'
             // }
