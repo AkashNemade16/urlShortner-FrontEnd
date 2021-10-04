@@ -43,12 +43,14 @@ const Home = () => {
                 <div>
                     <Header />
                 </div>
-                <Switch>
+                <div><Switch>
                     <Route exact path="/" component={Form} />
                     <Route path="/register" exact component={RegisterUser} />
                     <Route path="/login" exact component={LoggedInUser} />
                     <Route path="/myurls" exact component={MyUrls} />
                 </Switch>
+                </div>
+                
             </div>
         </BrowserRouter>
     );
