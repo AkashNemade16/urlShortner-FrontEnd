@@ -18,10 +18,10 @@ const useStyles = makeStyles(theme => {
             backgroundSize: "cover",
             height: "100vh",
             [theme.breakpoints.down('md')]: {
-                height: '120vh'
+                height: '110vh'
             },
             [theme.breakpoints.down('xs')]: {
-                height: '110vh'
+                height: '170vh'
             },
             // [theme.breakpoints.up('sm')]: {
             //     height: '110vh'
@@ -37,13 +37,10 @@ const Home = () => {
     useEffect(() => {
         dispatch(getUrlPost);
     }, [dispatch]);
-    // const theme = useTheme();
-    // const matches = useMediaQuery(theme.breakpoints.down('md'));
-    // console.log(matches)
     return (
         <BrowserRouter>
             <div className={classes.bg} >
-                <Header />
+                {/* <Header /> */}
                 <Switch>
                     <Route exact path="/" component={Form} />
                     <Route path="/register" exact component={RegisterUser} />
