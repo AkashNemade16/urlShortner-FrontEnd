@@ -19,10 +19,12 @@ const useStyles = makeStyles({
     navbarDisplayFlex: {
         display: `flex`,
         justifyContent: `space-between`,
+        height:'116px'
     },
     navDisplayFlex: {
         display: `flex`,
         justifyContent: `space-between`,
+        height: '116px'
     },
     linkText: {
         textDecoration: `none`,

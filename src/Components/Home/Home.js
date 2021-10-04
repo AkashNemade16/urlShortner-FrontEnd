@@ -39,10 +39,9 @@ const Home = () => {
         dispatch(getUrlPost);
     }, [dispatch]);
     return (
-        <BrowserRouter>
-            <Header /> 
+        <BrowserRouter>      
             <div className={classes.bg} >
-              
+                <Header /> 
                 <Switch>
                     <Route exact path="/" component={Form} />
                     <Route path="/register" exact component={RegisterUser} />
