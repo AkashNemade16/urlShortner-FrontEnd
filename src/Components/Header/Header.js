@@ -16,14 +16,14 @@ import { useHistory } from "react-router-dom";
 import SideDrawer from "./SideDrawer";
 
 const useStyles = makeStyles({
-    navbarDisplayFlex: {
-        display: `flex`,
-        justifyContent: `space-between`,
-    },
-    navDisplayFlex: {
-        display: `flex`,
-        justifyContent: `space-between`,
-    },
+    // navbarDisplayFlex: {
+    //     display: `flex`,
+    //     justifyContent: `space-between`,
+    // },
+    // navDisplayFlex: {
+    //     display: `flex`,
+    //     justifyContent: `space-between`,
+    // },
     linkText: {
         textDecoration: `none`,
         textTransform: `uppercase`,
