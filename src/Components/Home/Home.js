@@ -42,7 +42,7 @@ const Home = () => {
     // console.log(matches)
     return (
         <BrowserRouter>
-            <div  >
+            <div className={classes.bg} >
                 <Header />
                 <Switch>
                     <Route exact path="/" component={Form} />
