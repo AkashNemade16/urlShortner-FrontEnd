@@ -15,8 +15,8 @@ const useStyles = makeStyles(theme => {
     return {
         bg: {
             backgroundImage: `url(${background})`,
-            // backgroundRepeat: "repeat",
-            backgroundSize: "100%",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
             height: "100vh",
             [theme.breakpoints.down('md')]: {
                 height: '110vh'
