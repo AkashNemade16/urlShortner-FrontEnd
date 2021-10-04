@@ -78,8 +78,7 @@ const Header = () => {
     };
 
     const handleHome = (e) => {
-       
-        window.location.reload()
+        history.push("/");
     };
     return (
         <AppBar position="sticky" color="transparent" elevation={0}>
@@ -92,9 +91,9 @@ const Header = () => {
                             className={classes.navDisplayFlex}
                         >
                             <Link underline='none' href="/">
-                            <Typography color="white" variant="h3">
-                                TinyUrl
-                            </Typography>
+                                <Typography color="white" variant="h3">
+                                    TinyUrl
+                                </Typography>
                             </Link>
                             <Button
                                 className={classes.btn}
