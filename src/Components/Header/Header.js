@@ -91,9 +91,9 @@ const Header = () => {
                             className={classes.navDisplayFlex}
                         >
                             <Link underline='none' href="/">
-                                <Typography color="white" variant="h3">
-                                    TinyUrl
-                                </Typography>
+                            <Typography color="white" variant="h3">
+                                TinyUrl
+                            </Typography>
                             </Link>
                             <Button
                                 className={classes.btn}

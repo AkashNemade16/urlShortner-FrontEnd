@@ -9,14 +9,14 @@ import LoggedInUser from "../Auth/LoggedInUser";
 import MyUrls from "./../MyUrls/myUrls";
 import { makeStyles } from "@material-ui/core/styles";
 import background from "../../images/blob-bg.jpg";
-import {Grid} from '@mui/material';
+import {Grid,Container} from '@mui/material';
 
 const useStyles = makeStyles(theme => {
     return {
         bg: {
             backgroundImage: `url(${background})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
+            // backgroundRepeat: "repeat",
+            backgroundSize: "100%",
             height: "100vh",
             [theme.breakpoints.down('md')]: {
                 height: '110vh'
@@ -42,12 +42,14 @@ const Home = () => {
         <BrowserRouter>      
             <div className={classes.bg} >
                 <Header /> 
+                <Container>
                 <Switch>
                     <Route exact path="/" component={Form} />
                     <Route path="/register" exact component={RegisterUser} />
                     <Route path="/login" exact component={LoggedInUser} />
                     <Route path="/myurls" exact component={MyUrls} />
                 </Switch>
+                </Container>
             </div>
         </BrowserRouter>
     );
