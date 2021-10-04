@@ -40,20 +40,15 @@ const Home = () => {
     }, [dispatch]);
     return (
         <BrowserRouter>
+            <Header /> 
             <div className={classes.bg} >
-                <Grid container>
-                <Grid item>
-                     <Header />
-                </Grid>    
-                <Grid item> 
+              
                 <Switch>
                     <Route exact path="/" component={Form} />
                     <Route path="/register" exact component={RegisterUser} />
                     <Route path="/login" exact component={LoggedInUser} />
                     <Route path="/myurls" exact component={MyUrls} />
                 </Switch>
-                </Grid>
-                </Grid>
             </div>
         </BrowserRouter>
     );
