@@ -102,7 +102,7 @@ const Form = () => {
             <Grid container spacing={3}>
                 <Grid item lg={6}>
                     <Paper className={classes.paper} elevation={3}>
-                        <form>
+                        <form data-netlify="true" data-netlify-honeypot="bot-field">
                             <Box p={3}>
                                 <Typography variant="h6">
                                     Enter a long URL to make a TinyURL

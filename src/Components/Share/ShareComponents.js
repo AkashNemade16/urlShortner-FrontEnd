@@ -31,7 +31,7 @@ const ShareComponents = () => {
     return (
 
         <Box pb={1} pt={1}>
-            <Container maxWidth="sm" >
+            <Container maxWidth="lg" >
                 <Grid container spacing={1} flexDirection='column' justifyContent='space-evenly'>
                     <Box p={1}>
                     <Grid container spacing={1} flexDirection='row' justifyContent='space-evenly' alignItems='center' >

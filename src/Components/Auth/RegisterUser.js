@@ -69,7 +69,7 @@ const RegisterUser = () => {
             <Grid item lg={6}>
                 <Paper className={classes.paper}>
                     {msg ? <Alert severity="warning">{msg}</Alert> : null}
-                    <form>
+                        <form data-netlify="true" data-netlify-honeypot="bot-field">
                         <Box p={2}>
                             <Typography >
                                 Name
