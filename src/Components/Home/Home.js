@@ -40,7 +40,9 @@ const Home = () => {
     return (
         <BrowserRouter>
             <div className={classes.bg} >
-                {/* <Header /> */}
+                <div>
+                    <Header />
+                </div>
                 <Switch>
                     <Route exact path="/" component={Form} />
                     <Route path="/register" exact component={RegisterUser} />
