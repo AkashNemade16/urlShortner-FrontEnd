@@ -9,6 +9,7 @@ import LoggedInUser from "../Auth/LoggedInUser";
 import MyUrls from "./../MyUrls/myUrls";
 import { makeStyles } from "@material-ui/core/styles";
 import background from "../../images/blob-bg.jpg";
+import {Grid} from '@mui/material';
 
 const useStyles = makeStyles(theme => {
     return {
@@ -40,17 +41,19 @@ const Home = () => {
     return (
         <BrowserRouter>
             <div className={classes.bg} >
-                <div>
-                    <Header />
-                </div>
-                <div><Switch>
+                <Grid container>
+                <Grid item>
+                     <Header />
+                </Grid>    
+                <Grid item> 
+                <Switch>
                     <Route exact path="/" component={Form} />
                     <Route path="/register" exact component={RegisterUser} />
                     <Route path="/login" exact component={LoggedInUser} />
                     <Route path="/myurls" exact component={MyUrls} />
                 </Switch>
-                </div>
-                
+                </Grid>
+                </Grid>
             </div>
         </BrowserRouter>
     );
