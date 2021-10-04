@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState, useRef, memo} from 'react'
 import {
     Typography,
     Paper,
@@ -11,12 +11,12 @@ import {
     TableHead,
     TableRow,
 } from "@mui/material";
+import { Redirect } from "react-router-dom";
 import { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@mui/styles';
 import { clearData, getUserUrls } from './../../actions/urlActions';
-
 
 const useStyles = makeStyles({
     padding: {
@@ -45,27 +45,26 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
-const MyUrls = () => {
+const MemoisedMyUrls = memo(function MyUrls(){
     const dispatch = useDispatch()
     const authState = useSelector(state => state.auth)
     const userUrls = useSelector(state => state.userUrl.userUrls)
-    const [data, setData] = useState([]);
     useEffect(() => {
         if (authState.isAuthenticated && authState.user !== null) {
-            setData(userUrls)
             dispatch(getUserUrls(authState.user.email))
         } else {
             dispatch(clearData(userUrls))
         }
-    }, [authState.isAuthenticated, dispatch, userUrls, authState.user])
+    }, [authState.isAuthenticated, userUrls])
 
 
 
     const classes = useStyles()
     return (
+     
         <Container>
 
-            {authState.isAuthenticated && data[0] ? <div className={classes.padding}><TableContainer component={Paper}>
+            {authState.isAuthenticated && userUrls[0] ? <div className={classes.padding}><TableContainer component={Paper}>
                 <Table sx={{ minWidth: 200 }} aria-label="customized table">
                     <TableHead>
                         <TableRow>
@@ -75,7 +74,7 @@ const MyUrls = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {data[0].map((i, j) => (
+                        {userUrls[0].map((i, j) => (
                             <StyledTableRow key={j}>
                                 <StyledTableCell align="center"><Link href={i.shortenedUrl}>{i.shortenedUrl}</Link></StyledTableCell>
                                 <StyledTableCell align="center">{i.clicks}</StyledTableCell>
@@ -84,11 +83,11 @@ const MyUrls = () => {
                         ))}
                     </TableBody>
                 </Table>
-            </TableContainer></div> : <Typography variant='h5'><Link href='/login'>Please Log In</Link></Typography>}
+            </TableContainer></div> : <Redirect to='/login'/>}
         </Container>
 
     )
-}
+})
 
-export default MyUrls
+export default MemoisedMyUrls;
 

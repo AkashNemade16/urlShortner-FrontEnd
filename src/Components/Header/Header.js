@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import {
     AppBar,
@@ -8,6 +7,7 @@ import {
     Hidden,
     Container,
     List,
+    Link
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,6 +50,10 @@ const useStyles = makeStyles({
         paddingTop: 8,
         fontSize: 14,
     },
+    btn: {
+        // backgroundColor: "white !important",
+        color: "white !important",
+    },
 });
 
 const guestLinks = [
@@ -74,48 +78,59 @@ const Header = () => {
     };
 
     const handleHome = (e) => {
-        e.preventDefault();
-        history.push("/");
+       
+        window.location.reload()
     };
     return (
-        <AppBar position="sticky">
-            {/* #D0CCD0 */}
+        <AppBar position="sticky" color="transparent" elevation={0}>
             <Toolbar>
                 <Container maxWidth="lg" className={classes.navbarDisplayFlex}>
-                    {/* </Link> */}
-
                     <Hidden smDown>
                         <List
                             component="nav"
                             aria-labelledby="main navigation"
                             className={classes.navDisplayFlex}
                         >
-                            {/* <Link href="/"> */}
-                            <Typography variant="h3">TinyUrl</Typography>
-                            {/* </Link> */}
-                            <Button onClick={handleHome} color="inherit">
+                            <Link underline='none' href="/">
+                            <Typography color="white" variant="h3">
+                                TinyUrl
+                            </Typography>
+                            </Link>
+                            <Button
+                                className={classes.btn}
+                                onClick={handleHome}
+                                color="inherit"
+                            >
                                 Home
                             </Button>
-                            <Button onClick={handleMyurls} color="inherit">
+                            <Button
+                                className={classes.btn}
+                                onClick={handleMyurls}
+                                color="inherit"
+                            >
                                 MyUrls
                             </Button>
 
                             {authState.isAuthenticated ? (
-                                <Button onClick={handleLogout} color="inherit">
+                                <Button
+                                    className={classes.btn}
+                                    onClick={handleLogout}
+                                    color="inherit"
+                                >
                                     Logout
                                 </Button>
                             ) : (
-                                <Button href="/login" color="inherit">
+                                <Button className={classes.btn} href="/login" color="inherit">
                                     SignIn
                                 </Button>
                             )}
 
-                            <Button href="/register" color="inherit">
+                            <Button className={classes.btn} href="/register" color="inherit">
                                 SignUp
                             </Button>
                         </List>
                     </Hidden>
-                    <Hidden mdUp>
+                    <Hidden smUp>
                         <List
                             component="nav"
                             aria-labelledby="main navigation"

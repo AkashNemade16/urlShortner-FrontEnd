@@ -4,7 +4,7 @@ import {
   IconButton,
   List,
   ListItem,
-  ListItemText,
+
   Typography,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
@@ -108,7 +108,9 @@ const SideDrawer = ({ navLinks }) => {
   return (
     <React.Fragment>
       {/* <Link href="/"> */}
-      <Typography variant="h3">TinyUrl</Typography>
+      <Typography color="white" variant="h3">
+        TinyUrl
+      </Typography>
       {/* </Link> */}
       <IconButton
         edge="start"
