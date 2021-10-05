@@ -5,7 +5,7 @@ import { register } from "../../actions/authActions";
 import { Redirect } from "react-router-dom";
 import { getUserUrls } from "../../actions/urlActions";
 import { makeStyles } from "@mui/styles";
-
+import './auth.css'
 const useStyles = makeStyles({
     paper: {
         borderRadius: "20px !important",
@@ -130,6 +130,9 @@ const RegisterUser = () => {
                 </Paper>
             </Grid>
             </Grid>
+          
+                
+            
         </Container>
         
     );

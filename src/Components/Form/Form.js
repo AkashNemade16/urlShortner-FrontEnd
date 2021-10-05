@@ -182,6 +182,7 @@ const Form = () => {
                         </form>
                     </Paper>
                 </Grid>
+                <div className='Grid'>
                 <Grid item lg={6}>
                     <Box p={3}>
                         <Typography variant="h5" color="white">
@@ -201,6 +202,7 @@ const Form = () => {
                         </Link>
                     </Box>
                 </Grid>
+                </div>
             </Grid>
         </Container>
     );

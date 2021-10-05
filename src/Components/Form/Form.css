@@ -28,6 +28,8 @@
 .btnAccount {
         background-color: #0B82A6 !important
     }
+ 
+/* media */
 @media screen and (min-width: 767px) {
   .paper{
       height: 500px;
@@ -54,4 +56,17 @@
     .formContainer{
     margin-top:40px,
 }
+}
+
+@media screen and (min-width: 1280px) {
+    .Grid{
+        padding-left: 50px;
+    }
+}
+
+@media screen and (min-width: 320px) {
+    .formContainer{
+        padding-left: 25px;
+       
+    }
 }

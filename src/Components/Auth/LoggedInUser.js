@@ -5,7 +5,7 @@ import { LogIn } from "../../actions/authActions";
 import { makeStyles } from "@mui/styles";
 import { getUserUrls } from "../../actions/urlActions";
 import { Redirect } from "react-router-dom";
-
+import './auth.css'
 const useStyles = makeStyles({
     paper: {
         borderRadius: "20px !important",
@@ -103,6 +103,7 @@ const LoggedInUser = () => {
                     
                 </Grid>
            </Grid>
+
         </Container>
         
     );

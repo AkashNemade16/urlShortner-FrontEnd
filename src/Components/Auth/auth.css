@@ -1,3 +1,4 @@
+
 body{
     background-image: url(../../images/blob-bg.jpg);
     background-repeat: no-repeat;
@@ -5,28 +6,26 @@ body{
     background-size: cover
 }
 
-
-@media screen and (max-width: 360px) {
-  body {
-    height: 180vh;
-  }
-}
-
-
-@media screen and (min-width: 375px) {
-  body {
-    height: 140vh;
-  }
-}
-
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 767px) {
   body {
     height: 100vh;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 800px) {
+  body {
+    height: 220vh;
+  }
+}
+
+@media screen and (min-width: 1000px) {
   body {
     height: 100vh;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  body {
+    height: 105vh;
   }
 }
