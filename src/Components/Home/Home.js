@@ -17,16 +17,17 @@ const useStyles = makeStyles(theme => {
             backgroundImage: `url(${background})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
+            backgroundPosition:'center',
             height: "100vh",
             [theme.breakpoints.down('md')]: {
                 height: '110vh'
             },
-            [theme.breakpoints.down('xs')]: {
+            [theme.breakpoints.down('sm')]: {
                 height: '170vh'
             },
-            // [theme.breakpoints.up('sm')]: {
-            //     height: '110vh'
-            // }
+            [theme.breakpoints.up('md')]: {
+                height: '100vh'
+            }
         },
     }
 });

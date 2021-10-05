@@ -18,7 +18,7 @@ import { useHistory } from "react-router-dom";
 import SideDrawer from "./SideDrawer";
 
 const useStyles = makeStyles({
-  
+
     linkText: {
         textDecoration: `none`,
         textTransform: `uppercase`,
@@ -85,59 +85,59 @@ const Header = () => {
                             aria-labelledby="main navigation"
                             
                         > */}
-                            <Box display='flex' flexDirection='row' justifyContent='space-between'>
-                                <Box>
+                        <Box display='flex' flexDirection='row' justifyContent='space-between'>
+                            <Box>
                                 <Link underline='none' href="/">
                                     <Typography color="white" variant="h3">
                                         TinyUrl
                                     </Typography>
                                 </Link>
-                                </Box>
+                            </Box>
 
-                                <Box>
- <Button
-                                className={classes.btn}
-                                onClick={handleHome}
-                                color="inherit"
-                            >
-                                Home
-                            </Button>
-                            <Button
-                                className={classes.btn}
-                                onClick={handleMyurls}
-                                color="inherit"
-                            >
-                                MyUrls
-                            </Button>
-
-                            {authState.isAuthenticated ? (
+                            <Box>
                                 <Button
                                     className={classes.btn}
-                                    onClick={handleLogout}
+                                    onClick={handleHome}
                                     color="inherit"
                                 >
-                                    Logout
+                                    Home
                                 </Button>
-                            ) : (
-                                <Button className={classes.btn} href="/login" color="inherit">
-                                    SignIn
+                                <Button
+                                    className={classes.btn}
+                                    onClick={handleMyurls}
+                                    color="inherit"
+                                >
+                                    MyUrls
                                 </Button>
-                            )}
 
-                            <Button className={classes.btn} href="/register" color="inherit">
-                                SignUp
-                            </Button>
-                                </Box>
-                            
+                                {authState.isAuthenticated ? (
+                                    <Button
+                                        className={classes.btn}
+                                        onClick={handleLogout}
+                                        color="inherit"
+                                    >
+                                        Logout
+                                    </Button>
+                                ) : (
+                                    <Button className={classes.btn} href="/login" color="inherit">
+                                        SignIn
+                                    </Button>
+                                )}
 
-                           
-                            </Box>     
+                                <Button className={classes.btn} href="/register" color="inherit">
+                                    SignUp
+                                </Button>
+                            </Box>
+
+
+
+                        </Box>
                         {/* </List> */}
                     </Hidden>
                     <Hidden smUp>
                         <List
                             component="nav"
-                            aria-labelledby="main navigation"                       
+                            aria-labelledby="main navigation"
                         >
                             <SideDrawer />
                         </List>
