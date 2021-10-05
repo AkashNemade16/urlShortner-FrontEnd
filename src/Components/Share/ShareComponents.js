@@ -10,7 +10,9 @@ import BasicMenu from './shareMenu';
 import QRcode from "qrcode";
 import { useHistory } from 'react-router';
 
+
 const ShareComponents = () => {
+    
     const urls = useSelector(state => state.ur.urls);
     let history = useHistory();
     const qrCode = (e) => {
@@ -33,10 +35,10 @@ const ShareComponents = () => {
         <Box pb={1} pt={1}>
             <Container maxWidth="lg" >
                 <Grid container spacing={1} flexDirection='column' justifyContent='space-evenly'>
-                    <Box p={1}>
+                    <Box p={1} sx={{}}>
                     <Grid container spacing={1} flexDirection='row' justifyContent='space-evenly' alignItems='center' >
                         <Grid item xs>
-                            <Button component={Link} href={urls[0] ? urls[0].shortenedUrl : null} variant='contained' startIcon={<FontAwesomeIcon icon={faShare} />}>
+                            <Button fullWidth component={Link} href={urls[0] ? urls[0].shortenedUrl : null} variant='contained' startIcon={<FontAwesomeIcon icon={faShare} />}>
                                 Visit
                             </Button>
                         </Grid>
@@ -46,14 +48,14 @@ const ShareComponents = () => {
                         <Grid item xs>
                             <CopyToClipboard text={urls[0] ? urls[0].shortenedUrl : null}>
 
-                                <Button variant='contained' onClick={(e) => { e.preventDefault() }} endIcon={<ContentCopy />}>
+                                    <Button fullWidth variant='contained' onClick={(e) => { e.preventDefault() }} endIcon={<ContentCopy />}>
                                     Copy
                                 </Button>
 
                             </CopyToClipboard>
                         </Grid>
                         <Grid item xs>
-                            <Button onClick={qrCode} variant='contained' endIcon={<QrCodeIcon />}>QR</Button>
+                                <Button fullWidth onClick={qrCode} variant='contained' endIcon={<QrCodeIcon />}>QR</Button>
                         </Grid>
                     </Grid>
                     </Box>

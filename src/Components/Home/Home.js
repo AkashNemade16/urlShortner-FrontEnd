@@ -9,15 +9,18 @@ import LoggedInUser from "../Auth/LoggedInUser";
 import MyUrls from "./../MyUrls/myUrls";
 import { makeStyles } from "@material-ui/core/styles";
 import background from "../../images/blob-bg.jpg";
-import {Grid,Container} from '@mui/material';
+import { Container, Box } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const useStyles = makeStyles(theme => {
+
     return {
         bg: {
             backgroundImage: `url(${background})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            backgroundPosition:'center',
+            backgroundPosition: 'center',
             height: "100vh",
             [theme.breakpoints.down('md')]: {
                 height: '110vh'
@@ -27,12 +30,18 @@ const useStyles = makeStyles(theme => {
             },
             [theme.breakpoints.up('md')]: {
                 height: '100vh'
+            },
+            [theme.breakpoints.up('lg')]: {
+                height: '90vh'
             }
         },
     }
 });
 
 const Home = () => {
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
+    console.log(matches);
     const dispatch = useDispatch();
     const classes = useStyles();
 
@@ -40,16 +49,18 @@ const Home = () => {
         dispatch(getUrlPost);
     }, [dispatch]);
     return (
-        <BrowserRouter>      
+        <BrowserRouter>
             <div className={classes.bg} >
-                <Header /> 
+                <Header />
                 <Container>
-                <Switch>
-                    <Route exact path="/" component={Form} />
-                    <Route path="/register" exact component={RegisterUser} />
-                    <Route path="/login" exact component={LoggedInUser} />
-                    <Route path="/myurls" exact component={MyUrls} />
-                </Switch>
+                    <Box display='flex'>
+                        <Switch>
+                            <Route exact path="/" component={Form} />
+                            <Route path="/register" exact component={RegisterUser} />
+                            <Route path="/login" exact component={LoggedInUser} />
+                            <Route path="/myurls" exact component={MyUrls} />
+                        </Switch>
+                    </Box>
                 </Container>
             </div>
         </BrowserRouter>
