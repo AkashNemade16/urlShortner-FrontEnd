@@ -1,0 +1,57 @@
+ .paper{
+     border-radius: 20px !important
+ }
+
+ .textField{
+        display: block;
+        height: 23px;
+        width: auto;
+        padding: 17px 14px 17px 14px;
+        min-height: auto;
+        border: 1px solid #bebcbc;
+        border-radius: 5px,
+    }
+
+.formContainer{
+    margin-top:20px;
+}
+.btn{
+        border-radius: 10px !important;
+        background-color:#22A975 !important;
+        height: 60px;
+        font-size: 20px !important;
+        text-transform: capitalize !important;
+        font-weight: 600 !important;
+        cursor: pointer !important;
+    }
+
+.btnAccount {
+        background-color: #0B82A6 !important
+    }
+@media screen and (min-width: 767px) {
+  .paper{
+      height: 500px;
+      width: 600px;
+  }
+  .textField{
+        display: block;
+        height: 33px;
+        width: auto;
+        padding: 17px 14px 17px 14px;
+        min-height: auto;
+        border: 1px solid #bebcbc;
+        border-radius: 5px,
+    }
+    .btn{
+        border-radius: 10px !important;
+        background-color:#22A975 !important;
+        height: 80px;
+        font-size: 30px !important;
+        text-transform: capitalize !important;
+        font-weight: 700 !important;
+        cursor: pointer !important;
+    }
+    .formContainer{
+    margin-top:40px,
+}
+}

@@ -7,7 +7,6 @@ import {
     Hidden,
     Container,
     List,
-    ListItem,
     Link,
     Box
 } from "@mui/material";
@@ -18,6 +17,14 @@ import { useHistory } from "react-router-dom";
 import SideDrawer from "./SideDrawer";
 
 const useStyles = makeStyles({
+    navbarDisplayFlex: {
+        display: `flex`,
+        justifyContent: `space-between`,
+    },
+    navDisplayFlex: {
+        display: `flex`,
+        justifyContent: `space-between`,
+    },
 
     linkText: {
         textDecoration: `none`,
@@ -51,12 +58,6 @@ const useStyles = makeStyles({
     },
 });
 
-const guestLinks = [
-    { title: `home`, path: `/` },
-    { title: `about us`, path: `/about us` },
-    { title: `faq`, path: `/faq` },
-    { title: `disputes`, path: `/disputes` },
-];
 
 const Header = () => {
     const classes = useStyles();
@@ -78,23 +79,24 @@ const Header = () => {
     return (
         <AppBar position="sticky" color="transparent" elevation={0}>
             <Toolbar>
-                <Container  maxWidth="lg"   >
+                <Container maxWidth="lg" className={classes.navbarDisplayFlex}  >
                     <Hidden smDown>
-                        {/* <List
+                        <List
                             component="nav"
                             aria-labelledby="main navigation"
+                            className={classes.navDisplayFlex}
+                        >
+                        
+                       
                             
-                        > */}
-                        <Box display='flex' flexDirection='row' justifyContent='space-between'>
-                            <Box>
                                 <Link underline='none' href="/">
                                     <Typography color="white" variant="h3">
                                         TinyUrl
                                     </Typography>
                                 </Link>
-                            </Box>
+                          
 
-                            <Box>
+                            
                                 <Button
                                     className={classes.btn}
                                     onClick={handleHome}
@@ -127,17 +129,18 @@ const Header = () => {
                                 <Button className={classes.btn} href="/register" color="inherit">
                                     SignUp
                                 </Button>
-                            </Box>
+                            
 
 
 
-                        </Box>
-                        {/* </List> */}
+                       
+                        </List>
                     </Hidden>
                     <Hidden smUp>
                         <List
                             component="nav"
                             aria-labelledby="main navigation"
+                            className={classes.navDisplayFlex}
                         >
                             <SideDrawer />
                         </List>

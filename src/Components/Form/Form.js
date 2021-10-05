@@ -13,44 +13,12 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { createUrl, getUserUrls } from "../../actions/urlActions";
 import ShareComponents from "../Share/ShareComponents";
-import { makeStyles } from "@mui/styles";
 import { clearData } from "./../../actions/urlActions";
 import validator from 'validator';
 import { useHistory } from 'react-router';
-
-const useStyles = makeStyles({
-    paper: {
-        borderRadius: "20px !important",
-    },
-    textField: {
-        display: "block",
-        height: "23px",
-        width: "440px,",
-        padding: "17px 14px 17px 14px",
-        minHeight: "auto",
-        border: "1px solid #bebcbc",
-        borderRadius: "5px",
-    },
-    formContainer: {
-        marginTop: "20px",
-    },
-    btn: {
-        borderRadius: "10px !important",
-        backgroundColor: "#22A975 !important",
-        height: "60px",
-        fontSize: "20px !important",
-        textTransform: "capitalize !important",
-        fontWeight: "600 !important",
-        cursor: "pointer !important",
-    },
-    btnAccount: {
-        backgroundColor: "#0B82A6 !important",
-    }
-
-});
+import './Form.css'
 
 const Form = () => {
-    const classes = useStyles();
     const [postUrl, setPostUrl] = useState({
         full: "",
     });
@@ -98,13 +66,13 @@ const Form = () => {
     ];
     console.log(postUrl);
     return (
-        <Container className={classes.formContainer} maxWidth="lg">
-            <Grid container spacing={3}>
+        <Container className='formContainer' maxWidth="lg">
+            <Grid container>
                 <Grid item lg={6}>
-                    <Paper className={classes.paper} elevation={3}>
+                    <Paper className='paper' elevation={3}>
                         <form>
                             <Box p={3}>
-                                <Typography variant="h6">
+                                <Typography className='title' variant="h6">
                                     Enter a long URL to make a TinyURL
                                 </Typography>
                             </Box>
@@ -182,7 +150,7 @@ const Form = () => {
                                         <Typography variant="h6">Tiny Url</Typography>
                                     </Box>
                                     <Box p={2}>
-                                        <div className={classes.textField}>
+                                        <div className='textField'>
 
                                             <Typography variant="h8">
                                                 {urls[0] ? (
@@ -199,7 +167,7 @@ const Form = () => {
                             {!showUrl?
                                <Box p={3}>
                                     <Button
-                                        className={classes.btn}
+                                        className='btn'
                                         variant="contained"
                                         onClick={onHit}
                                         fullWidth
@@ -227,7 +195,7 @@ const Form = () => {
                     </Box>
                     <Box p={3}>
                         <Link underline="none" href="/register">
-                            <Button classes={classes.btnAccount} variant="contained">
+                            <Button onClick={createAccount} className='btnAccount' variant="contained">
                                 Create Free Account
                             </Button>
                         </Link>
