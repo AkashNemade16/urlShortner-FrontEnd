@@ -78,7 +78,7 @@ const Header = () => {
     return (
         <AppBar position="sticky" color="transparent" elevation={0}>
             <Toolbar>
-                <Container maxWidth="lg"  >
+                <Container  maxWidth="lg"   >
                     <Hidden smDown>
                         {/* <List
                             component="nav"

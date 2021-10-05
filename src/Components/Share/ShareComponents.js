@@ -32,10 +32,10 @@ const ShareComponents = () => {
     }
     return (
 
-        <Box pb={1} pt={1}>
+        <Box >
             <Container maxWidth="lg" >
-                <Grid container spacing={1} flexDirection='column' justifyContent='space-evenly'>
-                    <Box p={1} sx={{}}>
+                <Grid container flexDirection='column' >
+                    <Box p={1} >
                     <Grid container spacing={1} flexDirection='row' justifyContent='space-evenly' alignItems='center' >
                         <Grid item xs>
                             <Button fullWidth component={Link} href={urls[0] ? urls[0].shortenedUrl : null} variant='contained' startIcon={<FontAwesomeIcon icon={faShare} />}>

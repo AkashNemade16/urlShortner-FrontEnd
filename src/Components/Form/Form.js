@@ -50,7 +50,6 @@ const useStyles = makeStyles({
 });
 
 const Form = () => {
-    
     const classes = useStyles();
     const [postUrl, setPostUrl] = useState({
         full: "",
@@ -103,7 +102,7 @@ const Form = () => {
             <Grid container spacing={3}>
                 <Grid item lg={6}>
                     <Paper className={classes.paper} elevation={3}>
-                        <form data-netlify="true" data-netlify-honeypot="bot-field">
+                        <form>
                             <Box p={3}>
                                 <Typography variant="h6">
                                     Enter a long URL to make a TinyURL
@@ -140,7 +139,7 @@ const Form = () => {
                                     <Box p={3}>
                                         <Typography variant="h6">Customize your link</Typography>
                                     </Box>
-                                    <Grid container spacing={0}>
+                                    <Grid container>
                                         <Grid item>
                                             <Box p={3}>
                                                 <TextField
@@ -227,11 +226,11 @@ const Form = () => {
                         </Typography>
                     </Box>
                     <Box p={3}>
-                       
-                        <Button onClick={createAccount} classes={classes.btnAccount} variant="contained">
+                        <Link underline="none" href="/register">
+                            <Button classes={classes.btnAccount} variant="contained">
                                 Create Free Account
                             </Button>
-                    
+                        </Link>
                     </Box>
                 </Grid>
             </Grid>

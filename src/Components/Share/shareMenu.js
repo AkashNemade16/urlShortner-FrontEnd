@@ -29,8 +29,9 @@ export default function BasicMenu() {
     };
 
     return (
-        <Box >
+        <Box p={0} >
             <Button
+                fullWidth
                 id="basic-button"
                 aria-controls="basic-menu"
                 aria-haspopup="true"
