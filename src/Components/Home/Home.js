@@ -21,19 +21,19 @@ const useStyles = makeStyles(theme => {
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             backgroundPosition: 'center',
-            height: "100vh",
-            [theme.breakpoints.down('md')]: {
-                height: '110vh'
-            },
-            [theme.breakpoints.down('sm')]: {
-                height: '170vh'
-            },
+            height: "100%",
             [theme.breakpoints.up('md')]: {
-                height: '100vh'
+                height: '120vh'
             },
-            [theme.breakpoints.up('lg')]: {
-                height: '90vh'
-            }
+            // [theme.breakpoints.down('md')]: {
+            //     height: '120vh'
+            // },
+            // [theme.breakpoints.up('md')]: {
+            //     height: '100vh'
+            // },
+            // [theme.breakpoints.up('lg')]: {
+            //     height: '90vh'
+            // }
         },
     }
 });
@@ -53,7 +53,7 @@ const Home = () => {
             <div className={classes.bg} >
                 <Header />
                 <Container>
-                    <Box display='flex'>
+                    <Box>
                         <Switch>
                             <Route exact path="/" component={Form} />
                             <Route path="/register" exact component={RegisterUser} />
