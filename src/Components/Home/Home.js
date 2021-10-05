@@ -7,53 +7,33 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import RegisterUser from "../Auth/RegisterUser";
 import LoggedInUser from "../Auth/LoggedInUser";
 import MyUrls from "./../MyUrls/myUrls";
-import { makeStyles } from "@material-ui/core/styles";
-import background from "../../images/blob-bg.jpg";
 import { Container, Box } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import './home.css'
 
-const useStyles = makeStyles(theme => {
+// const useStyles = makeStyles(theme => {
 
-    return {
-        bg: {
-            backgroundImage: `url(${background})`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundPosition: 'center',
-            height: "100%",
-            [theme.breakpoints.up('md')]: {
-                height: '120vh'
-            },
-            // [theme.breakpoints.down('md')]: {
-            //     height: '120vh'
-            // },
-            // [theme.breakpoints.up('md')]: {
-            //     height: '100vh'
-            // },
-            // [theme.breakpoints.up('lg')]: {
-            //     height: '90vh'
-            // }
-        },
-    }
-});
+//     return {
+//         bg: {
+//             backgroundImage: `url(${background})`,
+//             backgroundRepeat: "no-repeat",
+//             backgroundSize: "cover",
+//             backgroundPosition: 'center'
+//         },
+//     }
+// });
 
 const Home = () => {
-    const theme = useTheme();
-    const matches = useMediaQuery(theme.breakpoints.up('md'));
-    console.log(matches);
     const dispatch = useDispatch();
-    const classes = useStyles();
 
     useEffect(() => {
         dispatch(getUrlPost);
     }, [dispatch]);
     return (
         <BrowserRouter>
-            <div className={classes.bg} >
+            <div className='home' >
                 <Header />
                 <Container>
-                    <Box>
+                     <Box>
                         <Switch>
                             <Route exact path="/" component={Form} />
                             <Route path="/register" exact component={RegisterUser} />
